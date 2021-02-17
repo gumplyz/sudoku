@@ -64,10 +64,10 @@ public class Board {
             int start = 27 * blockRow + 3 * blockColumn;
             int count = 0;
             for (int j = 0; j < 9; j++) {
+                count++;
                 if (this.numbers[start + j] > 0) {
                     this.candidates[i][this.numbers[start + j] - 1] = 0;
                 }
-                count++;
                 if (count % 3 == 0) {
                     start = start + 6;
                 }
@@ -139,10 +139,10 @@ public class Board {
             return lastCandidate;
         }
 
-        System.out.println(String.format("try to find only candidate by look at column %d", row));
+        System.out.println(String.format("try to find only candidate by look at column %d", column));
         tmpCandidate=new int[9] ;
         System.arraycopy(this.candidates[idx], 0, tmpCandidate, 0, 9);
-        for (int i = column; i < (72 + column); i += 9) {
+        for (int i = column; i <= (72 + column); i += 9) {
             if (i == idx) {
                 continue;
             }
@@ -166,15 +166,19 @@ public class Board {
 
         int blockRow = row / 3;
         int blockColumn = column / 3;
-        System.out.println(String.format("try to find only candidate by look at block %d:%d", row,column));
+        System.out.println(String.format("try to find only candidate by look at block %d:%d", blockRow,blockColumn));
         start = 27 * blockRow + 3 * blockColumn;
         count = 0;
         for (int j = 0; j < 9; j++) {
+            count++;
             if ((start + j) == idx) {
+                if (count % 3 == 0) {
+                    start = start + 6;
+                }
                 continue;
             }
-            tmpCandidate = removeDuplicateCandidate(tmpCandidate, this.candidates[j]);
-            count++;
+            tmpCandidate = removeDuplicateCandidate(tmpCandidate, this.candidates[start+j]);
+
             if (count % 3 == 0) {
                 start = start + 6;
             }

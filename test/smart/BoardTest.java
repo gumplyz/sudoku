@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BoardTest {
 
     @Test
-    void testToString(){
+    void testToString() {
         int[] input = new int[]{0, 2, 5, 3, 4, 1, 7, 9, 8,
                 4, 9, 8, 6, 7, 2, 3, 1, 5,
                 3, 7, 1, 5, 9, 8, 4, 2, 6,
@@ -38,8 +38,8 @@ class BoardTest {
     }
 
     @Test
-    void testSolve2(){
-        int[] input = new int[]{6, 2, 0, 0, 0, 1, 7,0, 8,
+    void testSolve2() {
+        int[] input = new int[]{6, 2, 0, 0, 0, 1, 7, 0, 8,
                 0, 0, 0, 0, 7, 0, 3, 0, 5,
                 0, 7, 1, 5, 0, 0, 4, 0, 0,
                 8, 0, 0, 1, 0, 7, 9, 0, 0,
@@ -48,6 +48,24 @@ class BoardTest {
                 0, 0, 7, 0, 0, 6, 2, 4, 0,
                 2, 0, 3, 0, 8, 0, 0, 0, 0,
                 9, 0, 4, 2, 0, 0, 0, 6, 7};
+        Board b = new Board(input);
+        System.out.println(b.toString());
+        b.solve();
+    }
+
+    @Test
+    void testSolve3() {
+        int[] input = new int[]{
+                0, 2, 1, 0, 0, 0, 0, 0, 0,
+                9, 0, 0, 5, 2, 0, 0, 0, 0,
+                0, 0, 8, 0, 3, 4, 0, 0, 9,
+                2, 7, 0, 0, 0, 0, 0, 8, 0,
+                0, 0, 0, 0, 5, 0, 0, 0, 0,
+                0, 3, 0, 0, 0, 0, 0, 7, 6,
+                1, 0, 0, 6, 7, 0, 2, 0, 0,
+                0, 0, 0, 0, 4, 9, 0, 0, 8,
+                0, 0, 0, 0, 0, 0, 4, 1, 0
+        };
         Board b = new Board(input);
         System.out.println(b.toString());
         b.solve();
