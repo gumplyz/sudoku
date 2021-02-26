@@ -22,7 +22,11 @@ public class Board {
         refreshCandidates();
     }
 
-    public void solve() {
+    public boolean solve(){
+        return trySolve();
+    }
+
+    private boolean trySolve() {
         while (this.totalNumsCount < 81) {
 
             int prevTotalNumberCount = this.totalNumsCount;
@@ -34,12 +38,13 @@ public class Board {
             }
             if (prevTotalNumberCount == this.totalNumsCount) {
                 System.out.println("Unable to solve");
-                break;
+                return false;
             }
             refreshCandidates();
             System.out.println("############## After one round");
             System.out.println(this.toString());
         }
+        return true;
     }
 
     private void refreshCandidates() {
@@ -208,6 +213,13 @@ public class Board {
         return source;
     }
 
+    public int[][] getCandidates() {
+        return candidates;
+    }
+
+    public int[] getNumbers() {
+        return numbers;
+    }
 
     @Override
     public String toString() {

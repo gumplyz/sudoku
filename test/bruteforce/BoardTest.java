@@ -72,4 +72,22 @@ class BoardTest {
         System.out.println(b.toString());
         b.solve();
     }
+
+    @Test
+    void testSolve4() {
+        int[] input = new int[]{
+                7, 6, 0, 0, 0, 0, 0, 0, 2,
+                0, 0, 0, 0, 0, 0, 0, 9, 0,
+                3, 0, 0, 9, 5, 4, 0, 0, 0,
+                0, 0, 0, 0, 0, 9, 4, 6, 0,
+                0, 0, 0, 7, 8, 0, 0, 2, 9,
+                5, 0, 0, 0, 0, 6, 7, 1, 0,
+                1, 8, 0, 0, 0, 0, 2, 0, 0,
+                0, 0, 0, 0, 1, 0, 0, 0, 6,
+                0, 0, 0, 0, 0, 0, 8, 0, 1
+        };
+        Board b = new Board(input);
+        System.out.println(b.toString());
+        b.solve();
+    }
 }
